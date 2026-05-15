@@ -2,7 +2,7 @@
 
 @section('content')
 
-<a href="" class="button blue">
+<a href="{{ route('categories.create') }}" class="button blue">
         <span>Adicionar Categoria</span>
       </a>
       <div class="card has-table">
@@ -31,10 +31,10 @@
                 <td data-label="Updated_AT"> {{$category-> updated_at}} </td>
                 <td class="actions-cell">
                   <div class="buttons right nowrap">
-                    <a href="" class="button blue">
+                    <a href="{{ route('categories.show', $category->id) }}" class="button blue">
                       <span>Ver</span>
                     </a>
-                    <a href="" class="button blue">
+                    <a href="{{ route('categories.edit', $category->id) }}" class="button blue">
                       <span>Editar</span>
                     </a>
                     <form method="POST" action="">

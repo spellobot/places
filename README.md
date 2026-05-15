@@ -7,18 +7,14 @@ O **Places** é uma aplicação web desenvolvida em Laravel para a gestão e lis
 
 ## 🚀 Estado Atual do Projeto
 
-O projeto encontra-se em fase inicial de desenvolvimento, com a estrutura base de dados e lógica de backend essencial já implementadas.
+O projeto encontra-se em desenvolvimento. A base de dados, lógica de backend e vistas para a gestão de categorias já estão implementadas.
 
 ### Funcionalidades Implementadas:
-- **Gestão de Categorias**: Sistema para organizar negócios (ex: Restaurantes, Oficinas, Lojas).
-- **Base de Dados de Negócios**: Estrutura completa para armazenar:
-  - Nome do negócio
-  - Morada
-  - NIF (VAT Number)
-  - Contactos (Telefone e Email)
-  - Estado (Ativo/Inativo)
-  - Associação a uma categoria específica.
-- **API/Controller**: `CategoryController` já configurado com métodos para listagem.
+- **Gestão de Categorias (CRUD)**: Sistema funcional para organizar categorias de negócios.
+  - Vistas configuradas (Blade Templates) para listagem, criação, edição e detalhes de categorias.
+- **Base de Dados de Negócios**: Migrações e estrutura preparada para armazenar:
+  - Nome do negócio, Morada, NIF, Contactos, Estado e Categoria associada.
+- **Layouts & Design**: Layout principal da aplicação configurado (`app.blade.php`) utilizando Tailwind CSS.
 
 ## 🛠️ Tech Stack
 

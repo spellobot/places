@@ -8,7 +8,7 @@
   <title>Dashboard - Admin One Tailwind CSS Admin Dashboard</title>
 
   <!-- Tailwind is included -->
-  <link rel="stylesheet" href="css/main.css?v=1652870200386">
+  <link rel="stylesheet" href="{{ asset('css/main.css?v=1652870200386') }}">
 
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
@@ -52,7 +52,7 @@
 
         <ul class="menu-list">
           <li class="--set-active-tables-html">
-            <a href="#">
+            <a href="{{ route('categories.index') }}">
               <span class="icon"><i class="mdi mdi-table"></i></span>
               <span class="menu-item-label">Categories</span>
             </a>
@@ -108,7 +108,7 @@
   </div>
 
   <!-- Scripts below are for demo only -->
-  <script type="text/javascript" src="js/main.min.js?v=1652870200386"></script>
+  <script type="text/javascript" src="{{ asset('js/main.min.js?v=1652870200386') }}"></script>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
   <script type="text/javascript" src="js/chart.sample.min.js"></script>

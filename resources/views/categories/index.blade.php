@@ -37,9 +37,9 @@
                     <a href="{{ route('categories.edit', $category->id) }}" class="button blue">
                       <span>Editar</span>
                     </a>
-                    <form method="POST" action="">
-                      <!--@csrf
-                      @method('DELETE')-->
+                    <form method="POST" action="{{ route('categories.destroy', $category->id) }}">
+                      @csrf
+                      @method('DELETE')
                       <button type="submit" class="button red" onclick="return confirm('Are you sure?')">
                         <span>eliminar</span>
                       </button>

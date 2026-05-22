@@ -57,6 +57,12 @@
               <span class="menu-item-label">Categories</span>
             </a>
           </li>
+          <li class="--set-active-tables-html">
+            <a href="{{ route('businesses.index') }}">
+              <span class="icon"><i class="mdi mdi-table"></i></span>
+              <span class="menu-item-label">Businesses</span>
+            </a>
+          </li>
         </ul>
       </div>
     </aside>

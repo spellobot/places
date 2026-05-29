@@ -1,7 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-     <div class="card mb-6">
+      @if ($errors->any())
+      <div class="notification red">
+        <ul>
+          @foreach ($errors->all() as $error)
+            <li>{{$error}}</li>
+          @endforeach
+        </ul>
+      </div>
+      @endif
+      <div class="card mb-6">
         <header class="card-header">
           <p class="card-header-title">
             <span class="icon"><i class="mdi mdi-ballot"></i></span>

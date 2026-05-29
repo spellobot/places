@@ -2,59 +2,106 @@
 
 ![Laravel](https://img.shields.io/badge/Laravel-12.x-FF2D20?style=for-the-badge&logo=laravel)
 ![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?style=for-the-badge&logo=php)
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
-O **Places** é uma aplicação web desenvolvida em Laravel para a gestão e listagem de negócios locais organizados por categorias.
+O **Places** é uma aplicação web robusta desenvolvida em Laravel 12 concebida para a gestão, organização e listagem de negócios locais classificados por categorias. 
 
-## 🚀 Estado Atual do Projeto
-
-O projeto encontra-se em desenvolvimento. A base de dados, lógica de backend e vistas para a gestão de categorias já estão implementadas.
-
-### Funcionalidades Implementadas:
-- **Gestão de Categorias (CRUD)**: Sistema funcional para organizar categorias de negócios.
-  - Vistas configuradas (Blade Templates) para listagem, criação, edição e detalhes de categorias.
-- **Base de Dados de Negócios**: Migrações e estrutura preparada para armazenar:
-  - Nome do negócio, Morada, NIF, Contactos, Estado e Categoria associada.
-- **Layouts & Design**: Layout principal da aplicação configurado (`app.blade.php`) utilizando Tailwind CSS.
-
-## 🛠️ Tech Stack
-
-- **Framework:** Laravel 12
-- **Linguagem:** PHP 8.2+
-- **Frontend:** Blade Templates & Tailwind CSS (via Vite)
-- **Base de Dados:** SQLite (padrão para desenvolvimento)
-
-## 📦 Instalação e Configuração
-
-Para configurar o projeto localmente, siga estes passos:
-
-1. **Clonar o repositório:**
-   ```bash
-   git clone <url-do-repositorio>
-   cd places
-   ```
-
-2. **Executar o script de configuração automática:**
-   O projeto inclui um comando personalizado no `composer.json` que automatiza a instalação de dependências, criação do `.env`, geração da chave e migrações:
-   ```bash
-   composer run setup
-   ```
-
-3. **Iniciar o servidor de desenvolvimento:**
-   O projeto utiliza o `concurrently` para correr o servidor Laravel e o Vite em simultâneo:
-   ```bash
-   composer run dev
-   ```
-
-## 📂 Estrutura de Rotas Principais
-
-- `/` - Página de boas-vindas.
-- `/categories` - Listagem e gestão de categorias.
-
-## 📝 Notas de Desenvolvimento
-
-- O projeto utiliza migrações modernas do Laravel 12.
-- A base de dados SQLite é criada automaticamente durante o processo de `setup`.
-- O sistema de autenticação base do Laravel está pronto a ser configurado/utilizado se necessário.
+Este projeto foi originalmente desenvolvido por **Diogo Pimenta** e posteriormente forçado (*forked*) e atualizado por **Ari Brandão**.
 
 ---
-Desenvolvido por Diogo Pimenta.
+
+## 🛠️ Tech Stack & Requisitos
+
+### Backend & Core
+- **Framework:** Laravel 12.x
+- **Linguagem:** PHP 8.2 ou superior
+- **Gestor de Dependências:** Composer
+
+### Base de Dados
+- **Motores compatíveis:** MariaDB / MySQL ou SQLite (configurável no ficheiro `.env`)
+
+### Frontend
+- **Interface:** Blade Templates
+- **Estilização:** Tailwind CSS (gerido via Vite)
+- **Runtime Node.js:** Node.js (v18+) e NPM
+
+---
+
+## 🚀 Instalação e Configuração
+
+Siga os passos abaixo para configurar o ambiente de desenvolvimento local:
+
+### 1. Obter o Código Fonte
+Clone o repositório para o seu ambiente local:
+```bash
+git clone <url-do-repositorio>
+cd places
+```
+
+### 2. Configuração Automática (Recomendado)
+O projeto inclui um script automatizado que instala dependências, cria a configuração de ambiente, gera as chaves de encriptação, corre as migrações da base de dados e compila os recursos de frontend:
+```bash
+composer run setup
+```
+
+### 3. Configuração Manual (Alternativa)
+Se preferir configurar cada componente individualmente:
+```bash
+# Instalar dependências PHP
+composer install
+
+# Configurar variáveis de ambiente
+cp .env.example .env
+php artisan key:generate
+
+# Configurar a base de dados no .env e executar as migrações
+php artisan migrate
+
+# Instalar dependências e compilar assets do frontend
+npm install
+npm run build
+```
+
+---
+
+## 💻 Execução em Desenvolvimento
+
+Para iniciar o servidor de desenvolvimento e o compilador de assets em tempo real em simultâneo:
+```bash
+composer run dev
+```
+*Este comando corre concorrentemente o servidor HTTP do Laravel, o queue listener, o painel de logs (Pail) e o Vite.*
+
+### Principais Endereços Locais:
+- **Aplicação:** [http://localhost:8000](http://localhost:8000)
+- **Vite Dev Server:** [http://localhost:5173](http://localhost:5173)
+
+---
+
+## 📂 Arquitetura e Estrutura do Projeto
+
+### Rotas Principais
+- `/` - Página principal de acolhimento e boas-vindas.
+- `/categories` - Painel administrativo para a gestão (CRUD) de categorias de negócios.
+
+### Estrutura de Modelos e Dados
+A estrutura de dados está desenhada para suportar os seguintes fluxos:
+- **Categorias:** Estrutura taxonómica para agrupar e filtrar negócios.
+- **Negócios:** Contém informações estruturadas de contacto, tais como:
+  - Nome do negócio, morada física, NIF, contactos de telefone/e-mail, estado e associação com a categoria respetiva.
+
+---
+
+## 🧪 Testes
+
+Para garantir a estabilidade do sistema e validar as regras de negócio implementadas, pode executar a suite de testes automatizados com o seguinte comando:
+```bash
+composer run test
+```
+
+---
+
+## 📝 Notas de Desenvolvimento e Contribuição
+
+- Assegure-se de que configura corretamente a ligação à base de dados no seu `.env` antes de correr as migrações (suporta `mariadb` ou `sqlite`).
+- Utilize o comando `composer run test` antes de submeter alterações de código para garantir que a cobertura de testes se mantém verde.
